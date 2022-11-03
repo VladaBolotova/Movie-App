@@ -6,7 +6,7 @@ const options = {
 	}
 };
 
-fetch('https://moviesdb5.p.rapidapi.com/om?t=Spider-Man', options)
+fetch('https://moviesdb5.p.rapidapi.com/om?s=action', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
