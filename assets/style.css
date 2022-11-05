@@ -7,6 +7,10 @@
     background-color: gray;
 }
 
+.flex{
+  display: flex;
+}
+
 #title{
     width: 200px;
     height: 70px;
@@ -26,7 +30,7 @@
 
 #Quote{
     height: 70px;
-    width: 1300px;
+    width: 500px;
     border: 1px solid black;
     box-sizing: border-box;
 }
@@ -87,7 +91,7 @@
 }
 
 .dropdown-check-list.visible .anchor {
-  color: #0094ff;
+  color: #000000;
 }
 
 .dropdown-check-list.visible .items {

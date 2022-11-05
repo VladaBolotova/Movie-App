@@ -7,100 +7,88 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
-<body>
-    <div id="title-container">
-        <h1 id="title">Movies App</h1>
-
-        <h2 id="Quote">Quote here</h2>
-    </div>
+<body class="flex">
+  <aside>
     <div id="filters-container">
-        <div class="Genre d-check dropdown-check-list" tabindex="100">
-            <span class="anchor">Select Genre</span>
-            <ul class="items">
-              <li><input type="checkbox" />Action </li>
-              <li><input type="checkbox" />Horror</li>
-              <li><input type="checkbox" />Comedy </li>
-              <li><input type="checkbox" />Drama </li>
-              <li><input type="checkbox" />Thriller </li>
-              <li><input type="checkbox" />Fantasy </li>
-              <li><input type="checkbox" />Romance</li>
-              <li><input type="checkbox" />Documentary</li>
-              <li><input type="checkbox" />Sci-fi</li>
-              <li><input type="checkbox" />Fiction</li>
-              <li><input type="checkbox" />Musical</li>
-              <li><input type="checkbox" />Family</li>
-              <li><input type="checkbox" />Animation</li>
-              <li><input type="checkbox" />Suspense</li>
-              <li><input type="checkbox" />Sport</li>
-              <li><input type="checkbox" />History</li>
-              
-            </ul>
-        </div>
+      <h1 id="title">Movies App</h1>
+      <div class="Genre d-check dropdown-check-list" tabindex="100">
+          <span id="genre" class="anchor">Select Genre</span>
+          <ul class="items">
+            <li><input type="checkbox" />Action </li>
+            <li><input type="checkbox" />Horror</li>
+            <li><input type="checkbox" />Comedy </li>
+            <li><input type="checkbox" />Drama </li>
+            <li><input type="checkbox" />Thriller </li>
+            <li><input type="checkbox" />Fantasy </li>
+            <li><input type="checkbox" />Romance</li>
+            <li><input type="checkbox" />Documentary</li>
+            <li><input type="checkbox" />Sci-fi</li>
+            <li><input type="checkbox" />Fiction</li>
+            <li><input type="checkbox" />Musical</li>
+            <li><input type="checkbox" />Family</li>
+            <li><input type="checkbox" />Animation</li>
+            <li><input type="checkbox" />Suspense</li>
+            <li><input type="checkbox" />Sport</li>
+            <li><input type="checkbox" />History</li>
+            
+          </ul>
+      </div>
 
-        <div class="Rating d-check dropdown-check-list" tabindex="100">
-            <span class="anchor">MPA Rating</span>
-            <ul class="items">
-              <li><input type="checkbox" />G </li>
-              <li><input type="checkbox" />PG</li>
-              <li><input type="checkbox" />PG-13 </li>
-              <li><input type="checkbox" />R </li>
-              <li><input type="checkbox" />NC-17 </li>
-       
-              
-            </ul>
-        </div>
+      <div class="Rating d-check dropdown-check-list" tabindex="100">
+          <span id="mpa" class="anchor">MPA Rating</span>
+          <ul class="items">
+            <li><input type="checkbox" />G </li>
+            <li><input type="checkbox" />PG</li>
+            <li><input type="checkbox" />PG-13 </li>
+            <li><input type="checkbox" />R </li>
+            <li><input type="checkbox" />NC-17 </li>
+     
+            
+          </ul>
+      </div>
 
 
-        <!-- //RANGE FOR THE YEARS AND RUN TIME -->
-<!-- 
-        <div id="releas-date" class="dropdown-check-list" tabindex="100">
-            <span class="anchor">Select Genre</span>
-            <ul class="items">
-              <li><input type="checkbox" />Action </li>
-              <li><input type="checkbox" />Horror</li>
-              <li><input type="checkbox" />Comedy </li>
-              <li><input type="checkbox" />Drama </li>
-              <li><input type="checkbox" />Thriller </li>
-              <li><input type="checkbox" />Fantasy </li>
-              <li><input type="checkbox" />Romance</li>
-              <li><input type="checkbox" />Documentary</li>
-              <li><input type="checkbox" />Sci-fi</li>
-              <li><input type="checkbox" />Fiction</li>
-              <li><input type="checkbox" />Musical</li>
-              <li><input type="checkbox" />Family</li>
-              <li><input type="checkbox" />Animation</li>
-              <li><input type="checkbox" />Suspense</li>
-              <li><input type="checkbox" />Sport</li>
-              <li><input type="checkbox" />History</li>
-              
-            </ul>
-        </div> -->
-        <div id="country d-check" class="dropdown-check-list" tabindex="100">
-            <span class="anchor">Country of Origin</span>
-            <ul class="items">
-              <li><input type="checkbox" />France </li>
-              <li><input type="checkbox" />Spain</li>
-              <li><input type="checkbox" />United States </li>
-              <li><input type="checkbox" />China </li>
-              <li><input type="checkbox" />South Korea </li>
-              <li><input type="checkbox" />Japan </li>
-              <li><input type="checkbox" />Turkey</li>
-              <li><input type="checkbox" />Germany</li>
-              <li><input type="checkbox" />India</li>
-              <li><input type="checkbox" />Russia</li>
-              <li><input type="checkbox" />United Kingdom </li>
-              <li><input type="checkbox" />Sweden</li>
-              <li><input type="checkbox" />Denmark</li>
-              <li><input type="checkbox" />Italy</li>
-              <li><input type="checkbox" />Brazil</li>
-              
-            </ul>
-        </div>
+      <!-- //RANGE FOR THE YEARS AND RUN TIME -->
+
+      <div id="releas-date" class="dropdown-check-list" tabindex="100">
+          <span class="anchor">Select year</span>
+          <label for="points">Range between (between 1990 and 2022):</label>
+          <input type="range" id="points" name="points" min="0" max="10">
+          </form>
+          
+      </div>
+      <div id="country d-check" class="dropdown-check-list" tabindex="100">
+          <span class="anchor">Country of Origin</span>
+          <ul class="items">
+            <li><input type="checkbox" />France </li>
+            <li><input type="checkbox" />Spain</li>
+            <li><input type="checkbox" />United States </li>
+            <li><input type="checkbox" />China </li>
+            <li><input type="checkbox" />South Korea </li>
+            <li><input type="checkbox" />Japan </li>
+            <li><input type="checkbox" />Turkey</li>
+            <li><input type="checkbox" />Germany</li>
+            <li><input type="checkbox" />India</li>
+            <li><input type="checkbox" />Russia</li>
+            <li><input type="checkbox" />United Kingdom </li>
+            <li><input type="checkbox" />Sweden</li>
+            <li><input type="checkbox" />Denmark</li>
+            <li><input type="checkbox" />Italy</li>
+            <li><input type="checkbox" />Brazil</li>
+            
+          </ul>
+      </div>
+  </div>
+  </aside>
+  <main>
+    <div id="title-container">
+      
+
+      <h2 id="Quote">Quote here</h2>
     </div>
-
     <div id="recommended">
-        <h3>Recommended</h3>
-    </div>
+      <h3>Recommended</h3>
+   </div>
     <div class="grid grid-flow-col grid-rows-5 grid-cols-5 gap-8">
         <div>
           <img src="https://via.placeholder.com/150" alt="" loading="lazy">
@@ -178,12 +166,18 @@
           <div>
             <img src="https://via.placeholder.com/150" alt="" loading="lazy">
           </div>
-
-       
       </div>
-      <div id="watch-container">
-        <h2>Watch later</h2>
+  </main>
+  <aside>
+    <div id="watch-container">
+      <h2>Watch later</h2>
     </div>
+  </aside>
+
+    
+
+
+
 
 
 
