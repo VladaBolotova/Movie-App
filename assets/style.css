@@ -12,33 +12,42 @@
 }
 
 #title{
-    width: 200px;
+    width: 250px;
     height: 70px;
     font-weight: bold;
     color: white;
     border: 1px solid black;
     box-sizing: border-box;
     font-size: 34px;
-    background-color:purple ;
+    background-color:purple;
 
 }
 
 #title-container{
     display: flex;
     flex-direction: row;
+     height: 70px;
+    width: 1300px;
+    border: 1px solid black;
+    box-sizing: border-box;
 }
 
 #Quote{
-    height: 70px;
-    width: 500px;
-    border: 1px solid black;
-    box-sizing: border-box;
+   
 }
 
-#filters-container {
-    border: 1px solid black;
-    box-sizing: border-box;
-    height: 70px;
+#filters-container #genre ul{
+  color: pink;
+ 
+}
+
+
+#watch-container #watch {
+  height: 70px;
+  width: 300px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  background-color: purple;
 }
 
 

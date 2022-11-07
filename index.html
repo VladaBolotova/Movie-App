@@ -32,6 +32,7 @@
             <li><input type="checkbox" />History</li>
             
           </ul>
+      
       </div>
 
       <div class="Rating d-check dropdown-check-list" tabindex="100">
@@ -50,15 +51,22 @@
 
       <!-- //RANGE FOR THE YEARS AND RUN TIME -->
 
-      <div id="releas-date" class="dropdown-check-list" tabindex="100">
-          <span class="anchor">Select year</span>
-          <label for="points">Range between (between 1990 and 2022):</label>
+      <div id="releas-date d-check" class="dropdown-check-list" tabindex="100">
+          <span id="releas" class="anchor">Select year</span>
+          <label for="points">  1990 - 2022):</label>
           <input type="range" id="points" name="points" min="0" max="10">
-          </form>
           
       </div>
+
+      <div id="run-time d-check" class="dropdown-check-list" tabindex="100">
+        <span id="runtime" class="anchor">Select run-time</span>
+        <label for="points">  1 hour - 4 hours):</label>
+        <input type="range" id="points" name="points" min="0" max="10">
+        
+    </div>
+
       <div id="country d-check" class="dropdown-check-list" tabindex="100">
-          <span class="anchor">Country of Origin</span>
+          <span id="country" class="anchor">Country of Origin</span>
           <ul class="items">
             <li><input type="checkbox" />France </li>
             <li><input type="checkbox" />Spain</li>
@@ -170,7 +178,7 @@
   </main>
   <aside>
     <div id="watch-container">
-      <h2>Watch later</h2>
+      <h2 id="watch">Watch later</h2>
     </div>
   </aside>
 
