@@ -17,7 +17,7 @@ for(i=0;i<checkList.length;i++){
 }
 
 $(".range-selector").click(function(){
-	var range=$(this).children("input")[0];
+	var range=$(this).children(".range-container")[0];
 	if($(range).hasClass("hidden")){
 		$(range).removeClass("hidden");
 	}else{
@@ -35,3 +35,18 @@ $("#points").on('change',function(){
 $("#point").on('change',function(){
 	$("#pf").text(this.value)
 })
+
+$( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 1950,
+      max: 2022,
+      values: [ 1970, 2000],
+      slide: function( event, ui ) {
+    $("#min").html(ui.values[0]);
+	$("#max").html(ui.values[1]);
+
+      }
+    });
+    
+  } );
