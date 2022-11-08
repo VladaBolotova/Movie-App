@@ -27,3 +27,7 @@ $(".range-selector").click(function(){
 	
 
 })
+
+$("#points").on('change',function(){
+	$("#pt").text(this.value)
+})

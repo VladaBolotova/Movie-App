@@ -11,7 +11,7 @@
   <aside class="flex flex-col">
     <div id="filters-container" class="flex flex-col justify-center pr-3">
       <h1 id="title">Movies App</h1>
-      <div class="Genre d-check dropdown-check-list my-2 w-full" tabindex="100">
+      <div class="Genre d-check dropdown-check-list my-5 w-full" tabindex="100">
           <span id="genre" class="anchor w-full ">Select Genre</span>
           <ul class="items">
             <li><input type="checkbox" />Action </li>
@@ -35,7 +35,7 @@
       
       </div>
 
-      <div class="Rating d-check dropdown-check-list mb-2 w-full" tabindex="100">
+      <div class="Rating d-check dropdown-check-list mb-5 w-full" tabindex="100">
           <span id="mpa" class="anchor w-full">MPA Rating</span>
           <ul class="items">
             <li><input type="checkbox" />G </li>
@@ -51,21 +51,21 @@
 
       <!-- //RANGE FOR THE YEARS AND RUN TIME -->
 
-      <div id="releas-date " class="dropdown-check-list d-check range-selector mb-2 w-full" tabindex="100">
-          <span id="releas" class="anchor w-full"> Year (1990 - 2022)</span>
+      <div id="releas-date " class="dropdown-check-list d-check range-selector mb-5 w-full" tabindex="100">
+          <span id="releas" class="anchor w-full"> Year</span>
    
-          <input  class="hidden" type="range" id="points" name="points" min="0" max="10">
-          
+          <input  class="hidden w-full" type="range" id="points" name="points" min="1990" max="2022">
+          <div class="flex justify-between"><p id="min">1990</p><p id="pt"></p><p id="max">2022</p></div>
       </div>
 
-      <div id="run-time " class="dropdown-check-list d-check range-selector mb-2 w-full" tabindex="100">
+      <div id="run-time " class="dropdown-check-list d-check range-selector mb-5 w-full" tabindex="100">
         <span id="runtime" class="anchor w-full"> Run-time (1 hr - 4 hrs)</span>
        
         <input class="hidden" type="range" id="points" name="points" min="0" max="10">
         
     </div>
 
-      <div id="country " class="dropdown-check-list d-check mb-2 w-full" tabindex="100">
+      <div id="country " class="dropdown-check-list d-check mb-5 w-full" tabindex="100">
           <span id="country" class="anchor w-full">Country of Origin</span>
           <ul class="items">
             <li><input type="checkbox" />France </li>
