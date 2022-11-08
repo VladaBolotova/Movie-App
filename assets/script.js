@@ -31,3 +31,7 @@ $(".range-selector").click(function(){
 $("#points").on('change',function(){
 	$("#pt").text(this.value)
 })
+
+$("#point").on('change',function(){
+	$("#pf").text(this.value)
+})

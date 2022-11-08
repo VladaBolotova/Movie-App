@@ -52,17 +52,19 @@
       <!-- //RANGE FOR THE YEARS AND RUN TIME -->
 
       <div id="releas-date " class="dropdown-check-list d-check range-selector mb-5 w-full" tabindex="100">
-          <span id="releas" class="anchor w-full"> Year</span>
+          <span id="releas" class="anchor w-full mb-3"> Year</span>
    
-          <input  class="hidden w-full" type="range" id="points" name="points" min="1990" max="2022">
-          <div class="flex justify-between"><p id="min">1990</p><p id="pt"></p><p id="max">2022</p></div>
+          <input  class="hidden w-full " type="range" id="points" name="points" min="1950" max="2022" value="1980" oninput="slideOne()">
+          <input  class="hidden w-full " type="range" id="point" name="points" min="1950" max="2022" value="2010" oninput="slideTwo()">
+          <div class="flex justify-between "><p id="min">1950</p><p id="pt"></p><p id="max">2022</p></div>
       </div>
 
+
       <div id="run-time " class="dropdown-check-list d-check range-selector mb-5 w-full" tabindex="100">
-        <span id="runtime" class="anchor w-full"> Run-time (1 hr - 4 hrs)</span>
+        <span id="runtime" class="anchor w-full mb-3"> Run-time (1 hr - 4 hrs)</span>
        
-        <input class="hidden" type="range" id="points" name="points" min="0" max="10">
-        
+        <input class="hidden w-full" type="range" id="point" name="points" min="1" max="4">
+        <div class="flex justify-between "><p id="min">1</p><p id="pf"></p><p id="max">4</p></div>
     </div>
 
       <div id="country " class="dropdown-check-list d-check mb-5 w-full" tabindex="100">
@@ -87,6 +89,7 @@
           </ul>
       </div>
   </div>
+  <button id="submit">Submit</button>
   </aside>
   <main>
     <div id="title-container">
