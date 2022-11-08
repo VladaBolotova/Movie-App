@@ -115,3 +115,7 @@
 .hidden{
   display: none;
 }
+
+h3 {
+  background-color: #ccc;
+}
