@@ -45,7 +45,7 @@
 
 #watch-container #watch {
   height: 70px;
-  width: 300px;
+  width: 200px;
   border: 1px solid black;
   box-sizing: border-box;
   background-color: purple;
@@ -126,4 +126,51 @@
  border-radius: 30px;
   cursor: pointer;
   font-size: 15px;
+}
+
+#new-movie{
+  margin-top: 100px;
+  margin-left: 250px;
+  height: 500px;
+  width: 700px;
+  box-sizing: border-box;
+  background-color: gray;
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  align-items:center;
+  justify-content:left;
+}
+
+#new-movie img{
+  height: 500px;
+  width: 250px;
+}
+
+#n1 li{
+  background-color: gray;
+  margin: 20px;
+  font-size: 20px;
+  display: flex;
+  justify-content: left;
+  color: rgb(53, 3, 53);
+  font-weight: bold;
+  font-family: fantasy;
+
+  
+}
+
+.new{
+  background-color: gray;
+  padding-bottom: 250px;
+  
+}
+
+#description{
+  background-color: gray;
+  font-family: fantasy;
+  color: black;
+  font-weight: bolder;
+  font-size: 25px;
+  margin-left: 47px;
 }

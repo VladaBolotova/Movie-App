@@ -36,6 +36,7 @@ $("#point").on('change',function(){
 	$("#pf").text(this.value)
 })
 
+
 $( function() {
     $( "#slider-range" ).slider({
       range: true,
@@ -48,5 +49,9 @@ $( function() {
 
       }
     });
+
+	
     
   } );
+
+  
