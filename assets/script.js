@@ -58,6 +58,8 @@ $( function() {
 var pipMovies = [];
 var moviecontainer = document.getElementById("movie-container")
 
+document.querySelector(".genre-ul").addEventListener("click",popMovies)
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -65,19 +67,18 @@ const options = {
 		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
 	}
 };
-
+function popMovies(){
 fetch('https://online-movie-database.p.rapidapi.com/title/get-most-popular-movies', options)
 	.then(response => { 
 	return response.json();
 	})
 	.then(data => {
-		
-		for(i=0; i<20; i++) {
+		console.log(data)
+		for(i=0; i<data.length; i++) {
 			var ert = data[i].split("/");
 			var ID = ert.slice(-2,-1);
 			//console.log(ID);
 			pipMovies.push(ID);
-			
 			
 			
 
@@ -87,7 +88,7 @@ fetch('https://online-movie-database.p.rapidapi.com/title/get-most-popular-movie
 
 
 }) 
-
+};
 
 // console.log(popMovies[2])
 
@@ -102,81 +103,91 @@ fetch('https://online-movie-database.p.rapidapi.com/title/get-most-popular-movie
 // console.log(movieid);
 
 
-function fetchMovie(movieinfo, options, index) {
+function fetchMovie(movieinfo, options, index) {	
 	setTimeout(function(){
 	fetch(movieinfo, options)
 			.then(response => { 
 			return response.json();
 		})
 		.then(data => {
-		console.log(data)
-		var Title = data.title.title
-		var year = data.title.year
-		var movieimg = data.title.image.url
-		console.log(Title)
-		var imgcon = document.createElement('img')
-		imgcon.classList.add("img")
-		var titlecon = document.createElement('h4')
-		var moviebox = document.createElement('div')
-		moviebox.classList.add("movie-box")
-		imgcon.src = movieimg
-		titlecon.textContent = Title+" "+"("+year+")"
-		moviebox.appendChild(imgcon)
-		moviebox.appendChild(titlecon)
-		moviecontainer.appendChild(moviebox)
+
+		return data
 		 
 		});
-	},index*250)
+	},index*500)
 }
 		
 function getpipmovies() {
-	for(i=0; i<pipMovies.length; i++) {
+	var moviedata = []
+	for(i=0; i<2; i++) {
 		var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst="
-		console.log(IDurl)
 		var movieinfo = IDurl.concat(pipMovies[i])
-		fetchMovie(IDurl+pipMovies[i], options, i)
+		moviedata.push(fetchMovie(IDurl+pipMovies[i], options, i))
+	
 	}
+	checkGenre(moviedata)
 }
 
 
 
-// function checkGenre () {
-// 	for(i=0; i <pipMovies.length; i++) {
-// 		var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst=";
-// 		console.log(IDurl);
-// 		var movieinfo = IDurl.concat(pipMovies[i]);
-// 		fetch(movieinfo, options)
-// 			.then(response => { 
-// 			return response.json();
-// 		})
-// 		.then(data => {
-// 		console.log(data)
-// 		var currList = []
-// 		var movieGenre = data.genres;
+function checkGenre (moviedata) {
+	var genreChecked = [];
+	document.querySelectorAll(".checkgenre").forEach(function(checkbox){
+		console.log(checkbox.checked)
+		if (checkbox.checked){
+			genreChecked.push(checkbox.parentElement.innerText);
+		};
+	});
+	console.log("checkedGenre: " + genreChecked)
+	// for(i=0; i <pipMovies.length; i++) {
+	// 	var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst=";
 
-// 		var movieid = data.id;
-// 		var ert = movieid.split("/");
-// 		var ID = ert.slice(-2,-1);
-// 		console.log(ID);
+	// 	var movieinfo = IDurl.concat(pipMovies[i]);
+	// 	fetch(movieinfo, options)
+	// 		.then(response => { 
+	// 		return response.json();
+	// 	})
+	// 	.then(data => {
+	// 	var currList = []
+	// 	var movieGenre = data.genres;
 
-// 		var Horror = movieGenre.includes("Horror");
-// 		var Action = movieGenre.includes("Action");
-// 		var Adventure = movieGenre.includes("Adventure");
-// 		var Comedy = movieGenre.includes("Comedy");
-// 		var Documentary = movieGenre.includes("Documentary");
-// 		var Biography = movieGenre.includes("Biography");
-// 		var History = movieGenre.includes("History");
-// 		var Drama = movieGenre.includes("Drama");
+	// 	// var movieid = data.id;
+	// 	// var ert = movieid.split("/");
+	// 	// var ID = ert.slice(-2,-1);
+	// 	// console.log(ID);
+
 		
-// 		console.log(Horror)
 
-	
-// // 		});
-// // 	}
-// // }
+	// 	var Horror = movieGenre.includes("Horror");
+	// 	var Action = movieGenre.includes("Action");
+	// 	var Adventure = movieGenre.includes("Adventure");
+	// 	var Comedy = movieGenre.includes("Comedy");
+	// 	var Documentary = movieGenre.includes("Documentary");
+	// 	var Biography = movieGenre.includes("Biography");
+	// 	var History = movieGenre.includes("History");
+	// 	var Drama = movieGenre.includes("Drama");
+	// 	});
+	// }
+}
+
+// filteredMovies == data
+function displayMovies(filteredMovies) {
+	var Title = data.title.title
+	var year = data.title.year
+	var movieimg = data.title.image.url
+	var imgcon = document.createElement('img')
+	imgcon.classList.add("img")
+	var titlecon = document.createElement('h4')
+	var moviebox = document.createElement('div')
+	moviebox.classList.add("movie-box")
+	imgcon.src = movieimg
+	titlecon.textContent = Title+" "+"("+year+")"
+	moviebox.appendChild(imgcon)
+	moviebox.appendChild(titlecon)
+	moviecontainer.appendChild(moviebox)
+}
 
 
-// // checkGenre()
-
+popMovies()
 
   
