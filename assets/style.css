@@ -3,3 +3,32 @@
     color: blue;
     
 }
+
+#movie-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px auto;
+    background-color: rgb(228, 224, 22);
+    
+}
+
+.poster{
+    max-width: 200px;
+    
+    
+}
+
+.img {
+    max-width: 200px;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+.movie-box {
+    padding: 10px auto;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-width: 25%
+}
