@@ -9,7 +9,7 @@ height: 100%;
 
 body {
   background: linear-gradient(rgb(17, 24, 39), rgb(75, 85, 99));
-  height: 100%;
+  background-attachment: fixed;
 }
 
 .flex{
