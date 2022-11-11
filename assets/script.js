@@ -81,7 +81,7 @@ $( function() {
 var pipMovies = [];
 var moviecontainer = document.getElementById("movie-container")
 
-// document.querySelector(".genre-ul").addEventListener("click",popMovies)
+document.querySelector(".genre-ul").addEventListener("click",popMovies)
 
 const options = {
 	method: 'GET',
@@ -131,7 +131,7 @@ function resolveAfter2Seconds(movieinfo, options) {
   }
 	
 async function getpipmovies() {
-	for(i=0; i<3; i++) {
+	for(i=0; i<10; i++) {
 		var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst="
 		movieinfo = IDurl.concat(pipMovies[i])
 		const result = await resolveAfter2Seconds(movieinfo, options);
