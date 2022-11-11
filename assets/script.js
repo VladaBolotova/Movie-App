@@ -8,7 +8,6 @@ for(i=0;i<checkList.length;i++){
 		if (event.target.parentElement.classList.contains('visible')){
 			event.target.parentElement.classList.remove('visible');
 			// if there is an input with a type range then add a class with display none 
-		
 		}else{
 			event.target.parentElement.classList.add('visible');
 			// if there is an input with a type range then remove the class with display none 
@@ -22,10 +21,7 @@ $(".range-selector").click(function(){
 		$(range).removeClass("hidden");
 	}else{
 		$(range).addClass("hidden");
-
 	}
-	
-
 })
 
 $("#points").on('change',function(){
@@ -36,7 +32,6 @@ $("#point").on('change',function(){
 	$("#pf").text(this.value)
 })
 
-
 $( function() {
     $( "#slider-range" ).slider({
       range: true,
@@ -46,14 +41,25 @@ $( function() {
       slide: function( event, ui ) {
     $("#min").html(ui.values[0]);
 	$("#max").html(ui.values[1]);
-
       }
     });
-
-	
-    
 } );
 
+// const options = {
+// 	method: 'POST',
+// 	headers: {
+// 		'X-RapidAPI-Key': '126aa9a222msh511ea90b77f0d10p1b34d9jsnbf58338755b4',
+// 		'X-RapidAPI-Host': 'andruxnet-random-famous-quotes.p.rapidapi.com'
+// 	}
+// };
+
+// fetch('https://andruxnet-random-famous-quotes.p.rapidapi.com/?cat=movies&count=1', options)
+// 	.then(response => response.json())
+// 	.then(data=> {
+// 		console.log(data)
+// 		console.log(data[0].author)
+// 	})
+// 	.catch(err => console.error(err));
 
 var pipMovies = [];
 var moviecontainer = document.getElementById("movie-container")
@@ -67,111 +73,94 @@ const options = {
 		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
 	}
 };
+var moviedata = []
+var filteredMovies = []
 function popMovies(){
+moviedata = []
+filteredMovies = []
 fetch('https://online-movie-database.p.rapidapi.com/title/get-most-popular-movies', options)
 	.then(response => { 
 	return response.json();
 	})
 	.then(data => {
-		console.log(data)
+		// console.log(data)
 		for(i=0; i<data.length; i++) {
 			var ert = data[i].split("/");
 			var ID = ert.slice(-2,-1);
 			//console.log(ID);
 			pipMovies.push(ID);
-			
-			
-
 		}; 
 		getpipmovies()
 		// console.log(popMovies[2])
-
-
 }) 
 };
 
-// console.log(popMovies[2])
-
-
-// var pipMovies = ["tt15791034", "tt1016150","tt10403420","tt6443346","tt4273800","tt1630029","tt9114286","tt17076046","tt15474916","tt14641788","tt2935622"] 
-
-// console.log(pipMovies);
-// console.log(pipMovies.length);
-// var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst=";
-// console.log(IDurl);
-// var movieid = IDurl.concat(pipMovies[1]);
-// console.log(movieid);
-
-
-function fetchMovie(movieinfo, options, index) {	
-	setTimeout(function(){
-	fetch(movieinfo, options)
+function resolveAfter2Seconds(movieinfo, options) {
+	return new Promise(resolve => {
+	  setTimeout(() => {
+		resolve(
+			fetch(movieinfo, options)
 			.then(response => { 
 			return response.json();
-		})
-		.then(data => {
-
-		return data
-		 
-		});
-	},index*500)
-}
-		
-function getpipmovies() {
-	var moviedata = []
-	for(i=0; i<2; i++) {
-		var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst="
-		var movieinfo = IDurl.concat(pipMovies[i])
-		moviedata.push(fetchMovie(IDurl+pipMovies[i], options, i))
+			})
+			.then(data => {
+				console.log(data)
+				moviedata.push(data);
+				return data
+			})
+		);
+	  }, 500);
+	});
+  }
 	
+async function getpipmovies() {
+	for(i=0; i<3; i++) {
+		var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst="
+		movieinfo = IDurl.concat(pipMovies[i])
+		const result = await resolveAfter2Seconds(movieinfo, options);
+		console.log('success: ', result)
 	}
 	checkGenre(moviedata)
 }
 
-
-
-function checkGenre (moviedata) {
+function checkGenre (data) {
+	// get checked genres
 	var genreChecked = [];
 	document.querySelectorAll(".checkgenre").forEach(function(checkbox){
-		console.log(checkbox.checked)
 		if (checkbox.checked){
 			genreChecked.push(checkbox.parentElement.innerText);
 		};
 	});
 	console.log("checkedGenre: " + genreChecked)
-	// for(i=0; i <pipMovies.length; i++) {
-	// 	var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst=";
 
-	// 	var movieinfo = IDurl.concat(pipMovies[i]);
-	// 	fetch(movieinfo, options)
-	// 		.then(response => { 
-	// 		return response.json();
-	// 	})
-	// 	.then(data => {
-	// 	var currList = []
-	// 	var movieGenre = data.genres;
+	//loop through movies then loop through their genre tag array,
+	data.forEach(function(movieObj){
+		var movie = movieObj
+		var movieGenres = movie.genres
+		movieGenres.forEach(function(type){
+			if (genreChecked.includes(type)) {
+				// check if already pushed if not push if yes dont push
+				if(!filteredMovies.includes(movie)){
+					filteredMovies.push(movie)
+				}
+			}
+		})
+	})
+	console.log(filteredMovies)
+	displayMovies()
+	};
 
-	// 	// var movieid = data.id;
-	// 	// var ert = movieid.split("/");
-	// 	// var ID = ert.slice(-2,-1);
-	// 	// console.log(ID);
-
-		
-
-	// 	var Horror = movieGenre.includes("Horror");
-	// 	var Action = movieGenre.includes("Action");
-	// 	var Adventure = movieGenre.includes("Adventure");
-	// 	var Comedy = movieGenre.includes("Comedy");
-	// 	var Documentary = movieGenre.includes("Documentary");
-	// 	var Biography = movieGenre.includes("Biography");
-	// 	var History = movieGenre.includes("History");
-	// 	var Drama = movieGenre.includes("Drama");
-	// 	});
-	// }
-}
-
-// filteredMovies == data
-function displayMovies(filteredMovies) {
+function displayMovies() {
+	var moviestoDisplay
+	if(filteredMovies.length > 0 ){
+		moviestoDisplay = filteredMovies
+		console.log(moviestoDisplay)
+	}else{
+		moviestoDisplay = moviedata
+		console.log(moviestoDisplay)
+	} 
+	
+	moviestoDisplay.forEach(function(data){
 	var Title = data.title.title
 	var year = data.title.year
 	var movieimg = data.title.image.url
@@ -185,9 +174,8 @@ function displayMovies(filteredMovies) {
 	moviebox.appendChild(imgcon)
 	moviebox.appendChild(titlecon)
 	moviecontainer.appendChild(moviebox)
+});
 }
 
 
 popMovies()
-
-  
