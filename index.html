@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
 
-  <body class="flex">
-    <aside class="flex flex-col m-3">
+  <body class="flex w-full">
+    <aside class="flex flex-col m-3 w-1/5" >
       <div id="filters-container" class="flex flex-col justify-center pr-3">
         <!-- M: Added Title style -->
         <h1 id="title" class="pt-2 mb-3 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">Movies App</h1>
@@ -264,53 +264,34 @@
             <!-- Years Range -->
             <button id="dropdownCheckboxButton3" data-dropdown-toggle="dropdownDefaultCheckbox3" class="m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Year <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             <div id="dropdownDefaultCheckbox3" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
-              <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
-                <li></li>
-              </ul>
+              <div class="p-5 bg-white">
+              <div id="slider-range"></div>
+              <div class="flex justify-between "><p class="text-black" id="min">1950</p><p  id="pt"></p><p class="text-black" id="max">2022</p>
+                </div>
+              </div>
             </div>
       
             <!-- Run Time Range-->
             <button id="dropdownCheckboxButton4" data-dropdown-toggle="dropdownDefaultCheckbox4" class="m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Run-Time <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             <div id="dropdownDefaultCheckbox4" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
-              <div id="releas-date " class="dropdown-check-list d-check range-selector mb-5 w-full" tabindex="100">
-                <span id="releas" class="anchor w-full mb-3"> Run-Time </span>
-                  <div class="range-container ">
-                    <div id="slider-range"></div>
-                    <div class="flex justify-between "><p id="min">1</p><p id="pt"></p><p id="max">4</p></div>
+                   <div class="p-5 bg-white">
+                    <div id="slider-range1"></div>
+                    <div class="flex justify-between "><p class="text-black" id="min1">1</p><p id="pt"></p><p class="text-black" id="max1">4</p></div></div>
                   </div>
               </div>
             </div>
 
-      <!-- //RANGE FOR THE YEARS AND RUN TIME -->
+   
 
-      <div id="releas-date " class="dropdown-check-list d-check range-selector mb-5 w-full" tabindex="100">
-          <span id="releas" class="anchor w-full mb-3"> Year</span>
-   <div class="range-container ">
-          
-          <div id="slider-range"></div>
-          <div class="flex justify-between "><p id="min">1950</p><p id="pt"></p><p id="max">2022</p></div>
-      </div>
-    </div>
-
-
-      <div id="run-time " class="dropdown-check-list d-check range-selector mb-5 w-full" tabindex="100">
-        <span id="runtime" class="anchor w-full mb-3"> Run-time </span>
-
-    <div class="range-container ">
-
-        <div id="slider-range1"></div>
-        <div class="flex justify-between "><p id="min">1</p><p id="pf"></p><p id="max">4</p></div>
-    </div>
-  </div>
 
   </div>
   <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
 </aside>
-<main>
+<main class="w-3/5">
   <div id="title-container" class="border-b-4 border-purple-800">
-  </aside>
-  <main>
-    <div id="title-container">
+  
+  
+    
       
 
       <h2 id="Quote">Quote here</h2>
@@ -401,7 +382,7 @@
           </div> -->
       <!-- </div> -->
   </main>
-  <aside>
+  <aside class="w-1/5">
     <div id="watch-container" class="m-3">
       <h2 id="watch" class="m-2 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">Watch Later</h2>
     </div>
