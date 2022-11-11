@@ -179,3 +179,13 @@ h1, h2, h3 {
   max-height: 300px;
   min-height: 300px;
 }
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
