@@ -7,10 +7,11 @@ for(i=0;i<checkList.length;i++){
 		//event listener "local" scope - scope 3
 		if (event.target.parentElement.classList.contains('visible')){
 			event.target.parentElement.classList.remove('visible');
-			// if there is an input with a type range then add a class with display none 
+			
+		
 		}else{
 			event.target.parentElement.classList.add('visible');
-			// if there is an input with a type range then remove the class with display none 
+			 
 		}
 	}) 
 }
@@ -61,10 +62,26 @@ $( function() {
 // 	})
 // 	.catch(err => console.error(err));
 
+$( function() {
+    $( "#slider-range1" ).slider({
+      range: true,
+      min: 1,
+      max: 4,
+      values: [ 2, 3],
+      slide: function( event, ui ) {
+    $("#min1").html(ui.values[0]);
+	$("#max1").html(ui.values[1]);
+
+      }
+    });
+} );
+
+
+
 var pipMovies = [];
 var moviecontainer = document.getElementById("movie-container")
 
-document.querySelector(".genre-ul").addEventListener("click",popMovies)
+// document.querySelector(".genre-ul").addEventListener("click",popMovies)
 
 const options = {
 	method: 'GET',
@@ -159,7 +176,7 @@ function displayMovies() {
 		moviestoDisplay = moviedata
 		console.log(moviestoDisplay)
 	} 
-	
+
 	moviestoDisplay.forEach(function(data){
 	var Title = data.title.title
 	var year = data.title.year
