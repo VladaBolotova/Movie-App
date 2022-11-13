@@ -362,3 +362,18 @@ document.querySelector("#submit-btn").addEventListener("click", function(event){
 })
 
 document.querySelector("#next-btn").addEventListener("click", displayQuote())
+
+
+
+// Likes for Watch List 
+// $(document).ready(function(){
+// 	$("#heart").click(function(){
+// 	  if($("#heart").hasClass("liked")){
+// 		$("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+// 		$("#heart").removeClass("liked");
+// 	  }else{
+// 		$("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+// 		$("#heart").addClass("liked");
+// 	  }
+// 	});
+//   });
