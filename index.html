@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movies App</title>
       
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <!-- M: Added google fonts -->
@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
 
@@ -19,11 +20,11 @@
     <aside class="flex flex-col m-3 w-1/5" >
       <div id="filters-container" class="flex flex-col justify-center pr-3">
         <!-- M: Added Title style -->
-        <h1 id="title" class="pt-2 mb-3 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">Movies App</h1>
+        <h1 id="title" class="pt-2 mb-3 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">MOVIES APP</h1>
   
         <!-- M: added Tailwind Genre dropdown menu -->
         <!-- Genre Dropdown -->
-        <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" class="m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Select Genre <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Genre <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
         <div id="dropdownBgHover" class="hidden z-10 w-48 bg-white rounded shadow dark:bg-gray-700">
           <ul class="genre-ul p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
             <li>
@@ -128,7 +129,7 @@
   
         
         <!-- M: Dropdown menu for MPA Rating -->
-        <button id="dropdownCheckboxButton1" data-dropdown-toggle="dropdownDefaultCheckbox1" class="m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">MPA Rating <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <button id="dropdownCheckboxButton1" data-dropdown-toggle="dropdownDefaultCheckbox1" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">MPA Rating <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
         <div id="dropdownDefaultCheckbox1" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
           <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
             <li>
@@ -165,7 +166,7 @@
         </div>
   
         <!-- M: Country of Origin Dropdown Menu -->
-        <button id="dropdownCheckboxButton2" data-dropdown-toggle="dropdownDefaultCheckbox2" class="m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">Country of Origin <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <button id="dropdownCheckboxButton2" data-dropdown-toggle="dropdownDefaultCheckbox2" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">Country of Origin <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
         <div id="dropdownDefaultCheckbox2" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
           <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
             <li>
@@ -262,7 +263,7 @@
         </div>
   
             <!-- Years Range -->
-            <button id="dropdownCheckboxButton3" data-dropdown-toggle="dropdownDefaultCheckbox3" class="m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Year <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <button id="dropdownCheckboxButton3" data-dropdown-toggle="dropdownDefaultCheckbox3" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Year <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             <div id="dropdownDefaultCheckbox3" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
               <div class="p-5 bg-white">
               <div id="slider-range"></div>
@@ -272,9 +273,9 @@
             </div>
       
             <!-- Run Time Range-->
-            <button id="dropdownCheckboxButton4" data-dropdown-toggle="dropdownDefaultCheckbox4" class="m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Run-Time <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <button id="dropdownCheckboxButton4" data-dropdown-toggle="dropdownDefaultCheckbox4" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Run-Time <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             <div id="dropdownDefaultCheckbox4" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
-                   <div class="p-5 bg-white">
+                  <div class="p-5 bg-white">
                     <div id="slider-range1"></div>
                     <div class="flex justify-between "><p class="text-black" id="min1">1</p><p id="pt"></p><p class="text-black" id="max1">4</p></div></div>
                   </div>
@@ -285,23 +286,19 @@
 
 
   </div>
-  <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
+  <button type="button" class="w-40 ml-9 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
 </aside>
-<main class="w-3/5">
-  <div id="title-container" class="border-b-4 border-purple-800">
-  
-  
-    
-      
+<main class="w-3/5 p-3">
+  <div id="title-container" class="border-b-4 border-purple-800">     
 
-      <h2 id="Quote">Quote here</h2>
+      <h2 id="Quote" class="mt-5">Quote here</h2>
     </div>
     <div id="recommended">
-      <h3 class="ml-10 p-4">Recommended</h3>
+      <h3 class="ml-5 p-4">Recommended</h3>
    </div>
    <div id="movie-container" class="grid grid-rows-5 grid-cols-5 gap-8" ></div>
 
-   
+  
 
     <!-- <div class="grid grid-flow-col grid-rows-5 grid-cols-5 gap-8">
         <div>
@@ -384,7 +381,7 @@
   </main>
   <aside class="w-1/5">
     <div id="watch-container" class="m-3">
-      <h2 id="watch" class="m-2 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">Watch Later</h2>
+      <h2 id="watch" class="m-2 pt-1 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">Watch Later</h2>
     </div>
   </aside>
 
@@ -398,12 +395,20 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/1d37754851.js" crossorigin="anonymous"></script>  
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-
   <script src="./assets/script.js"></script>
 
 </body>
 
+  <!-- Heart for Watch List
+  <p>Click on the heart to love or un-love this post.</p>
+  <span id = heart><i class="fa fa-heart-o" aria-hidden="true" ></i> </span> -->
 
+    <!-- Alternative Heart button for Watch List
+    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+      <span class="relative px-3 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          ♡ 
+      </span>
+    </button> -->
 </html>
