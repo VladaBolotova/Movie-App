@@ -97,133 +97,197 @@ $(function () {
 // }
 
 
-// var pipMovies = [];
+var pipMovies = [];
 var moviecontainer = document.getElementById("movie-container")
 
 // document.querySelector(".genre-ul").addEventListener("click", popMovies)
 
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '126aa9a222msh511ea90b77f0d10p1b34d9jsnbf58338755b4',
-// 		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-// 	}
-// };
-// var moviedata = []
-// var filteredMovies = []
+const option = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '126aa9a222msh511ea90b77f0d10p1b34d9jsnbf58338755b4',
+		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+	}
+};
+var moviedata = []
+var filteredMovies = []
 
-// function popMovies() {
-// 	moviedata = []
-// 	filteredMovies = []
-// 	fetch('https://online-movie-database.p.rapidapi.com/title/get-most-popular-movies', options)
-// 		.then(response => {
-// 			return response.json();
-// 		})
-// 		.then(data => {
-// 			// console.log(data)
-// 			for (i = 0; i < data.length; i++) {
-// 				var ert = data[i].split("/");
-// 				var ID = ert.slice(-2, -1);
-// 				//console.log(ID);
-// 				pipMovies.push(ID);
-// 			};
-// 			getpipmovies()
-// 			// console.log(popMovies[2])
-// 		})
-// };
+function popMovies() {
+	moviedata = []
+	filteredMovies = []
+	fetch('https://online-movie-database.p.rapidapi.com/title/get-top-rated-movies', option)
+		.then(response => {
+			return response.json();
+		})
+		.then(data => {
+			// console.log(data)
+			for (i = 0; i < data.length; i++) {
+				var ert = data[i].id.split("/");
+				var ID = ert.slice(-2, -1);
+				//console.log(ID);
+				pipMovies.push(ID);
+			};
+			getpipmovies()
+			// console.log(popMovies[2])
+		})
+};
 
-// function resolveAfter2Seconds(movieinfo, options) {
-// 	return new Promise(resolve => {
-// 		setTimeout(() => {
-// 			resolve(
-// 				fetch(movieinfo, options)
-// 					.then(response => {
-// 						return response.json();
-// 					})
-// 					.then(data => {
-// 						// console.log(data)
-// 						moviedata.push(data);
-// 						return data
-// 					})
-// 			);
-// 		}, 500);
-// 	});
-// }
+function resolveAfter2Seconds(movieinfo, option) {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(
+				fetch(movieinfo, option)
+					.then(response => {
+						return response.json();
+					})
+					.then(data => {
+						// console.log(data)
+						moviedata.push(data);
+						return data
+					})
+			);
+		}, 500);
+	});
+}
 
-// async function getpipmovies() {
-// 	for (i = 0; i < 10; i++) {
-// 		var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst="
-// 		movieinfo = IDurl.concat(pipMovies[i])
-// 		const result = await resolveAfter2Seconds(movieinfo, options);
-// 		// console.log('success: ', result)
-// 	}
-// 	checkGenre(moviedata)
-// }
+async function getpipmovies() {
+	for (i = 0; i < 20; i++) {
+		var IDurl = "https://online-movie-database.p.rapidapi.com/title/get-overview-details?tconst="
+		movieinfo = IDurl.concat(pipMovies[i])
+		const result = await resolveAfter2Seconds(movieinfo, option);
+		// console.log('success: ', result)
+	}
+	checkGenre(moviedata)
+}
 
-// function checkGenre(data) {
-// 	// get checked genres
-// 	var genreChecked = [];
-// 	document.querySelectorAll(".checkgenre").forEach(function (checkbox) {
-// 		if (checkbox.checked) {
-// 			genreChecked.push(checkbox.parentElement.innerText);
-// 		};
-// 	});
-// 	console.log("checkedGenre: " + genreChecked)
+function checkGenre(data) {
+	// get checked genres
+	var genreChecked = [];
+	document.querySelectorAll(".checkgenre").forEach(function (checkbox) {
+		if (checkbox.checked) {
+			genreChecked.push(checkbox.parentElement.innerText);
+		};
+	});
+	console.log("checkedGenre: " + genreChecked)
 
-// 	//loop through movies then loop through their genre tag array,
-// 	data.forEach(function (movieObj) {
-// 		var movie = movieObj
-// 		var movieGenres = movie.genres
-// 		movieGenres.forEach(function (type) {
-// 			if (genreChecked.includes(type)) {
-// 				// check if already pushed if not push if yes dont push
-// 				if (!filteredMovies.includes(movie)) {
-// 					filteredMovies.push(movie)
-// 				}
-// 			}
-// 		})
-// 	})
-// 	// console.log(filteredMovies)
-// 	displayMovies()
-// };
+	//loop through movies then loop through their genre tag array,
+	data.forEach(function (movieObj) {
+		var movie = movieObj
+		var movieGenres = movie.genres
+		movieGenres.forEach(function (type) {
+			if (genreChecked.includes(type)) {
+				// check if already pushed if not push if yes dont push
+				if (!filteredMovies.includes(movie)) {
+					filteredMovies.push(movie)
+				}
+			}
+		})
+	})
+	// console.log(filteredMovies)
+	displayMovies()
+};
 
-// function displayMovies() {
-// 	var moviestoDisplay
-// 	if (filteredMovies.length > 0) {
-// 		moviestoDisplay = filteredMovies
-// 		// console.log(moviestoDisplay)
-// 	} else {
-// 		moviestoDisplay = moviedata
-// 		// console.log(moviestoDisplay)
-// 	}
+function displayMovies() {
+	var moviestoDisplay
+	if (filteredMovies.length > 0) {
+		moviestoDisplay = filteredMovies
+		// console.log(moviestoDisplay)
+	} else {
+		moviestoDisplay = moviedata
+		// console.log(moviestoDisplay)
+	}
 
-// 	moviestoDisplay.forEach(function (data) {
-// 		var Title = data.title.title
-// 		var year = data.title.year
-// 		var movieimg = data.title.image.url
-// 		var imgcon = document.createElement('img')
-// 		imgcon.classList.add("img")
-// 		var titlecon = document.createElement('h4')
-// 		var moviebox = document.createElement('div')
-// 		moviebox.classList.add("movie-box")
-// 		imgcon.src = movieimg
-// 		titlecon.textContent = Title + " " + "(" + year + ")"
-// 		moviebox.appendChild(imgcon)
-// 		moviebox.appendChild(titlecon)
-// 		moviecontainer.appendChild(moviebox)
-// 	});
-// }
+	moviestoDisplay.forEach(function (data) {
+		var Title = data.title.title
+		var year = data.title.year
+		var movieimg = data.title.image.url
+		var imgcon = document.createElement('img')
+		imgcon.classList.add("img")
+		var titlecon = document.createElement('h4')
+		var moviebox = document.createElement('div')
+		moviebox.classList.add("movie-box")
+		imgcon.src = movieimg
+		titlecon.textContent = Title + " " + "(" + year + ")"
+		moviebox.appendChild(imgcon)
+		moviebox.appendChild(titlecon)
+		moviecontainer.appendChild(moviebox)
+	});
+}
 
 
-// popMovies()
+popMovies()
 // document.addEventListener('load', function (event) {
 // 	console.log("Document loaded", event)
 // 	displayRandomQuote()
 // })
+var quotes = [
+	{
+	  "quote": "Bond. James Bond.",
+	  "author": "Dr. No",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "Nobody puts Baby in a corner.",
+	  "author": "Dirty Dancing",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "Get your stinking paws off me, you damned dirty ape.",
+	  "author": "Planet of the Apes",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "Made it, Ma! Top of the world!",
+	  "author": "White Heat",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "Oh, no, it wasn't the airplanes. It was Beauty killed the Beast.",
+	  "author": "King Kong",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "I love the smell of napalm in the morning.",
+	  "author": "Apocalypse Now",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "You're gonna need a bigger boat.",
+	  "author": "Jaws",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "Say hello to my little friend!",
+	  "author": "Scarface",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "Love means never having to say you're sorry.",
+	  "author": "Love Story",
+	  "category": "Movies"
+	},
+	{
+	  "quote": "Here's looking at you, kid.",
+	  "author": "Casablanca",
+	  "category": "Movies"
+	}
+];
+
+var index = 0;
+  
+function displayQuote() {
+	var quoteContainer = document.getElementById("title-container");
+	var quoteEl = document.getElementById("Quote");
+	var authorEl = document.getElementById("Author");
+	quoteEl.textContent = '"'+quotes[index].quote+ '"';
+	authorEl.textContent = '-'+quotes[index].author;
+	quoteContainer.append(quoteEl);
+	quoteContainer.append(authorEl);
+	index++;
+};
+
 
 var HorrMovies = []
-
-
 
 const options = {
 	method: 'GET',
@@ -232,6 +296,9 @@ const options = {
 		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
 	}
 };
+
+function Horr() {
+
 
 fetch('https://online-movie-database.p.rapidapi.com/title/v2/get-popular-movies-by-genre?genre=horror&limit=20', options)
 	.then(response => {
@@ -248,6 +315,7 @@ fetch('https://online-movie-database.p.rapidapi.com/title/v2/get-popular-movies-
 		getHorrMovies()
 		console.log(HorrMovies)
 	});
+}
 
 
 function getHorrMovies() {
@@ -281,8 +349,16 @@ function fetchMovie(movieinfo, options, index) {
 		moviebox.appendChild(imgcon)
 		moviebox.appendChild(titlecon)
 		moviecontainer.appendChild(moviebox)
+		console.log(data.plotSummary.text)
 		 
 		});
-	},index*250)
+	},index*500)
 }
 
+
+document.querySelector("#submit-btn").addEventListener("click", function(event){
+	moviecontainer.replaceChildren();
+	Horr()
+})
+
+document.querySelector("#next-btn").addEventListener("click", displayQuote())
