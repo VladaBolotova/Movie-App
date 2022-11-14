@@ -197,7 +197,9 @@ function displayMovies() {
 		// console.log(moviestoDisplay)
 	}
 
-	moviestoDisplay.forEach(function (data) {
+	moviestoDisplay.forEach(function(data){
+		console.log("This is the movie api data",data) //print out all api data
+		var id = data.title.id //this stores the unique id for each movie
 		var Title = data.title.title
 		var year = data.title.year
 		var movieimg = data.title.image.url
@@ -205,15 +207,46 @@ function displayMovies() {
 		imgcon.classList.add("img")
 		var titlecon = document.createElement('h4')
 		var moviebox = document.createElement('div')
+		var addLater = document.createElement('button')
+		var description = document.createElement('button')
+		//description.setAttribute("id", "description")
+		addLater.setAttribute("id", "watchLater")
 		moviebox.classList.add("movie-box")
+		moviebox.setAttribute("id", Title) //setting the div ID of the movie boxes to the title of the movie
 		imgcon.src = movieimg
-		titlecon.textContent = Title + " " + "(" + year + ")"
+		titlecon.textContent = Title+" "+"("+year+")"
+		addLater.textContent = "Watch Later"
+		//description.textContent = "Description"
 		moviebox.appendChild(imgcon)
 		moviebox.appendChild(titlecon)
+		moviebox.appendChild(addLater)
+		//moviebox.appendChild(description)
 		moviecontainer.appendChild(moviebox)
+		
 	});
-}
-
+	console.log("Calling add click event")
+	$(function() {
+		//console.info("jquaryloaded")
+		// loop over list of movies and add an on click handler to each movie to the list
+		$("#movie-container").find('div').each(function(i, elem){
+			console.log("movie-box", i, elem)
+			$(elem).find('#watchLater').click(function () {
+				//if button id changes this button wont work
+				console.log("Elem:", elem)
+				var recommendedlist=[]
+				recommendedlist.push(elem)
+				var $watchLater = $(recommendedlist).clone()
+				$($watchLater).find("button").remove()
+				$('#watch-container').append($watchLater)
+				console.log("Jquery is running..", recommendedlist)
+			})
+		})
+	
+		$("#watch-container").each(function(i, elem) {
+			console.log(i, elem)
+	    })
+	})
+	}
 
 popMovies()
 
