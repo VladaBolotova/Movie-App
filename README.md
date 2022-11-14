@@ -18,3 +18,12 @@ https://rapidapi.com/apidojo/api/online-movie-database
 <br>
 Tailwindcss|
 https://tailwindcss.com/
+## Created By
+Vladyslava Bolotova
+https://github.com/VladaBolotova
+Thitaree Pongpluemiptichai 
+https://github.com/thitareep
+Alfredo Morales
+https://github.com/almoral323
+Brian Campero
+https://github.com/Bcamper96
