@@ -199,4 +199,8 @@ border-radius: 25px;
   font-family: Montserrat;
 }
 
+#desImg {
+  min-width: 300px;
+  min-height: 500px;
 
+}

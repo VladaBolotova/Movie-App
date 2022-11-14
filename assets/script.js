@@ -49,8 +49,8 @@ $(function () {
 $(function () {
 	$("#slider-range1").slider({
 		range: true,
-		min: 1,
-		max: 4,
+		min: 60,
+		max: 300,
 		values: [2, 3],
 		slide: function (event, ui) {
 			$("#min1").html(ui.values[0]);
@@ -146,7 +146,7 @@ function resolveAfter2Seconds(movieinfo, options) {
 						return data
 					})
 			);
-		}, 500);
+		}, 250);
 	});
 }
 
@@ -157,7 +157,8 @@ async function getpipmovies() {
 		const result = await resolveAfter2Seconds(movieinfo, options);
 		console.log('success: ', result)
 	}
-	checkGenre(moviedata)
+	// checkGenre(moviedata)
+	displayMovies()
 }
 
 function checkGenre(data) {
@@ -251,91 +252,23 @@ function displayMovies() {
 popMovies()
 
 
+var quotes = ['"Bond. James Bond."  - Dr. No',
+'"Nobody puts Baby in a corner."  -Dirty Dancing',
+'"Get your stinking paws off me, you damned dirty ape."  -Planet of the Apes',
+'"Made it, Ma! Top of the world!"  -White Heat',
+'"Oh, no, it wasnt the airplanes. It was Beauty killed the Beast."  -King Kong',
+'"I love the smell of napalm in the morning."  -Apocalypse Now',
+'"Youre gonna need a bigger boat."  -Jaws',
+'"Say hello to my little friend!"  -Scarface',
+'"Love means never having to say youre sorry."  -Love Story',
+'"Heres looking at you, kid."  -Casablanca'];
 
-// Likes for Watch List 
-// $(document).ready(function(){
-// 	$("#heart").click(function(){
-// 	  if($("#heart").hasClass("liked")){
-// 		$("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
-// 		$("#heart").removeClass("liked");
-// 	  }else{
-// 		$("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
-// 		$("#heart").addClass("liked");
-// 	  }
-// 	});
-//   });
-
-// document.addEventListener('load', function (event) {
-// 	console.log("Document loaded", event)
-// 	displayRandomQuote()
-// })
-
-
-
-var quotes = [
-	{
-		"quote": "Bond. James Bond.",
-		"author": "Dr. No",
-		"category": "Movies"
-	},
-	{
-		"quote": "Nobody puts Baby in a corner.",
-		"author": "Dirty Dancing",
-		"category": "Movies"
-	},
-	{
-		"quote": "Get your stinking paws off me, you damned dirty ape.",
-		"author": "Planet of the Apes",
-		"category": "Movies"
-	},
-	{
-		"quote": "Made it, Ma! Top of the world!",
-		"author": "White Heat",
-		"category": "Movies"
-	},
-	{
-		"quote": "Oh, no, it wasn't the airplanes. It was Beauty killed the Beast.",
-		"author": "King Kong",
-		"category": "Movies"
-	},
-	{
-		"quote": "I love the smell of napalm in the morning.",
-		"author": "Apocalypse Now",
-		"category": "Movies"
-	},
-	{
-		"quote": "You're gonna need a bigger boat.",
-		"author": "Jaws",
-		"category": "Movies"
-	},
-	{
-		"quote": "Say hello to my little friend!",
-		"author": "Scarface",
-		"category": "Movies"
-	},
-	{
-		"quote": "Love means never having to say you're sorry.",
-		"author": "Love Story",
-		"category": "Movies"
-	},
-	{
-		"quote": "Here's looking at you, kid.",
-		"author": "Casablanca",
-		"category": "Movies"
-	}
-];
-
-var index = 0;
 
 function displayQuote() {
-	var quoteContainer = document.getElementById("title-container");
+	var randomQuote = Math.floor(Math.random()*(quotes.length));
 	var quoteEl = document.getElementById("Quote");
-	var authorEl = document.getElementById("Author");
-	quoteEl.textContent = '"' + quotes[index].quote + '"';
-	authorEl.textContent = '-' + quotes[index].author;
-	quoteContainer.append(quoteEl);
-	quoteContainer.append(authorEl);
-	index++;
+	quoteEl.textContent = quotes[randomQuote]
+
 };
 
 
@@ -401,11 +334,19 @@ function fetchMovie(movieinfo, options, index) {
 				moviebox.appendChild(imgcon)
 				moviebox.appendChild(titlecon)
 				moviecontainer.appendChild(moviebox)
-				console.log(data.plotSummary.text)
+				// console.log(data.plotSummary.text)
+				
+				imgcon.addEventListener("click", function(event){
+					window.open('file:///C:/Users/Alfredo/Desktop/Project%201%20Movies/Project1-Movie-App/index1.html', '_blank');
+					event.preventDefault();
+				})
+				
 
 			});
+			
 	}, index * 500)
 }
+
 
 
 document.querySelector("#submit-btn").addEventListener("click", function (event) {
@@ -413,5 +354,5 @@ document.querySelector("#submit-btn").addEventListener("click", function (event)
 	Horr()
 })
 
-document.querySelector("#next-btn").addEventListener("click", displayQuote())
+// document.querySelector("#next-btn").addEventListener("click", displayQuote())
 
