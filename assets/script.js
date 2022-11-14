@@ -252,27 +252,6 @@ function displayMovies() {
 popMovies()
 
 
-
-// Likes for Watch List 
-// $(document).ready(function(){
-// 	$("#heart").click(function(){
-// 	  if($("#heart").hasClass("liked")){
-// 		$("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
-// 		$("#heart").removeClass("liked");
-// 	  }else{
-// 		$("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
-// 		$("#heart").addClass("liked");
-// 	  }
-// 	});
-//   });
-
-// document.addEventListener('load', function (event) {
-// 	console.log("Document loaded", event)
-// 	displayRandomQuote()
-// })
-
-
-
 var quotes = ['"Bond. James Bond."  - Dr. No',
 '"Nobody puts Baby in a corner."  -Dirty Dancing',
 '"Get your stinking paws off me, you damned dirty ape."  -Planet of the Apes',
