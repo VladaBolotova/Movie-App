@@ -135,7 +135,11 @@ width: 900px;
 box-sizing: border-box;
 /* background-color: gray; */
 /* background-image: linear-gradient(to right, rgba(33, 40, 125, 0), rgb(80, 8, 135)); */
-background: radial-gradient(at right top, rgb(15, 23, 42), rgb(88, 28, 135), rgb(15, 23, 42));
+background: linear-gradient(to left bottom, rgb(49, 46, 129), rgb(129, 140, 248), rgb(49, 46, 129))
+
+;
+
+
 text-align: center;
 font-size: 15px;
 display: flex;
@@ -150,15 +154,21 @@ width: 250px;
 border-radius: 10px 10px;
 }
 
+#n1{
+margin-top: 20px;
+}
+
+
 #n1 li{
 background-color: none;
 /* margin: 20px; */
-font-size: 20px;
+font-size: 15px;
 display: flex;
 justify-content: left;
-color: rgb(9, 9, 9);
+color: rgb(26, 16, 16);
 font-weight: bold;
-font-family: fantasy;
+font-family: Montserrat;
+
 
 
 }
@@ -171,7 +181,7 @@ padding-bottom: 250px;
 
 #description{
   background-image: none;
-font-family: fantasy;
+/* font-family: ; */
 color: black;
 font-weight: bolder;
 font-size: 25px;
@@ -186,15 +196,7 @@ border-radius: 25px;
 }
 
 #new-movie h4{
-  font-family: fantasy;
+  font-family: Montserrat;
 }
 
-#fa-heart-o {
-color: red;
-cursor: pointer;
-}
 
-#fa-heart {
-color: red;
-cursor: pointer;
-}

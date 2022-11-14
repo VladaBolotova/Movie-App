@@ -381,3 +381,4 @@ document.querySelector("#submit-btn").addEventListener("click", function (event)
 })
 
 document.querySelector("#next-btn").addEventListener("click", displayQuote())
+
