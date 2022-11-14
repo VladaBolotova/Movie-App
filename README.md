@@ -3,9 +3,9 @@
 ## Description
 WHAT2WATCH is our first project in which we wanted to create a simple movie database and application for users to find movie recommendations that fit their criteria. We also wanted to give users a way to create a watchlist that they could view in one place, versus having to go through multiple watchlists on various platforms. It features HTML, JavaScript, and CSS with the usage of the Tailwind library. It also uses 2 APIs: the Online Movie Database and Random Famous Quotes.  
 ## Screenshot
-![Alt text](../../../../../C:/Users/thita/bootcamp/Project1-Movie-App/assets/IMG/SS1.png)
-![Alt text](../../../../../C:/Users/thita/bootcamp/Project1-Movie-App/assets/IMG/SS2.png)
-![Alt text](../../../../../C:/Users/thita/bootcamp/Project1-Movie-App/assets/IMG/SS3.png)
+![Screenshot](https://github.com/VladaBolotova/Project1-Movie-App/blob/main/assets/IMG/SS1.png)
+![Screenshot](https://github.com/VladaBolotova/Project1-Movie-App/blob/main/assets/IMG/SS2.png)
+![Screen](https://github.com/VladaBolotova/Project1-Movie-App/blob/main/assets/IMG/SS3.png)
 ## Deployed Link
 Link to deployed application:
 https://vladabolotova.github.io/Project1-Movie-App/
