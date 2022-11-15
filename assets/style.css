@@ -168,15 +168,11 @@ justify-content: left;
 color: rgb(26, 16, 16);
 font-weight: bold;
 font-family: Montserrat;
-
-
-
 }
 
 .new{
   background:none;
 padding-bottom: 250px;
-
 }
 
 #description{
@@ -202,5 +198,4 @@ border-radius: 25px;
 #desImg {
   min-width: 300px;
   min-height: 500px;
-
 }

@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
 
-
 <body class="flex w-full">
   <aside class="flex flex-col m-3 w-1/5" >
     <div id="filters-container" class="flex flex-col justify-center pr-3">
@@ -128,11 +127,6 @@
           </li>
         </ul>
       </div>
-
-            
-
-
-
 
 <!-- M: Dropdown menu for MPA Rating -->
 <button id="dropdownCheckboxButton1" data-dropdown-toggle="dropdownDefaultCheckbox1" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">MPA Rating <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -325,8 +319,6 @@
     </div>
 
 
-
-
     </div>
     <button type="button" id="submit-btn" class="w-40 ml-9 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 m-10 mb-2">Submit</button>
   </aside>
@@ -335,7 +327,7 @@
       <button type="button" onclick="displayQuote()" id="quote-btn" class="w-1/8 mx-3 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1.5 text-center mr-2 mb-2"> Quote  <i class='far fa-comments'></i></button>
         <h2 id="Quote" class="m-5 italic">"It aint about how hard you hit. It's about how hard you can get hit and keep moving forward."  -Rocky Balboa</h2>
       </div>
-    
+  
 
     <div id="new-movie">
       <img id="desImg" src="https://m.media-amazon.com/images/M/MV5BZTg1Y2Q3MzctMDlkOS00OGE1LWE4MjUtNmJjNDNkZmM2YmVkXkEyXkFqcGdeQXVyMjY5ODI4NDk@._V1_.jpg" alt="" loading="lazy">
@@ -346,7 +338,7 @@
         <li>Run Time: <h3> 111 minutes</h3></li>
         <button onclick="watchLater()" type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5  mt-4 mr-14 ">♡</button>
       </ul>
-      
+        <!-- added onclick button so that it adds movie to watch later-->
       <div id="w1">
         
         <!-- <div id='heart' class='button'></div> -->
@@ -357,10 +349,7 @@
         confront the evil she can't control, once and for all.</h4>
       </div>
       
-
     </div>
-
-
 
   </main>
   <aside class="w-1/5 ml-5 p-2">
@@ -370,13 +359,7 @@
     </div>
   </aside>
 
-
-
-
-
-
-
-
+  <!-- script links-->
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script src="https://kit.fontawesome.com/1d37754851.js" crossorigin="anonymous"></script>  
@@ -385,6 +368,5 @@
 <script src="./assets/script.js"></script>
 <script src="./assets/watchLater.js"></script>
 </body>
-
 
 </html>

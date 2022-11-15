@@ -199,7 +199,7 @@ function displayMovies() {
 	}
 
 	moviestoDisplay.forEach(function(data){
-		console.log("This is the movie api data",data) //print out all api data
+		console.log("This is the movie api data",data) //prints out all api data
 		var id = data.title.id //this stores the unique id for each movie
 		var Title = data.title.title
 		var year = data.title.year
@@ -228,11 +228,11 @@ function displayMovies() {
 	console.log("Calling add click event")
 	$(function() {
 		//console.info("jquaryloaded")
-		// loop over list of movies and add an on click handler to each movie to the list
+		// this loops over the list of movies and adds an on click handler to each movie to the list
 		$("#movie-container").find('div').each(function(i, elem){
 			console.log("movie-box", i, elem)
 			$(elem).find('#watchLater').click(function () {
-				//if button id changes this button wont work
+				//the button wont work if the button ID changes
 				console.log("Elem:", elem)
 				var recommendedlist=[]
 				recommendedlist.push(elem)
@@ -355,4 +355,3 @@ document.querySelector("#submit-btn").addEventListener("click", function (event)
 })
 
 // document.querySelector("#next-btn").addEventListener("click", displayQuote())
-
